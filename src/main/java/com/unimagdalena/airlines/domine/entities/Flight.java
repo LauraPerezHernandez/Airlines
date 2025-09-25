@@ -1,4 +1,4 @@
-package com.unimagdalena.airlines.entities;
+package com.unimagdalena.airlines.domine.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity

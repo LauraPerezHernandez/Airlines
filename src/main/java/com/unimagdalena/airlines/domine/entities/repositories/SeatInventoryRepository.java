@@ -1,7 +1,7 @@
-package com.unimagdalena.airlines.repositories;
+package com.unimagdalena.airlines.domine.entities.repositories;
 
-import com.unimagdalena.airlines.entities.Cabin;
-import com.unimagdalena.airlines.entities.SeatInventory;
+import com.unimagdalena.airlines.domine.entities.Cabin;
+import com.unimagdalena.airlines.domine.entities.SeatInventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

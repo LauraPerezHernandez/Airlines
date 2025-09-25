@@ -1,7 +1,7 @@
-package com.unimagdalena.airlines.repositories;
+package com.unimagdalena.airlines.domine.entities.repositories;
 
-import com.unimagdalena.airlines.entities.Airport;
-import com.unimagdalena.airlines.entities.Flight;
+import com.unimagdalena.airlines.domine.entities.Airport;
+import com.unimagdalena.airlines.domine.entities.Flight;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;

@@ -1,6 +1,6 @@
-package com.unimagdalena.airlines.repositories;
+package com.unimagdalena.airlines.domine.entities.repositories;
 
-import com.unimagdalena.airlines.entities.Passenger;
+import com.unimagdalena.airlines.domine.entities.Passenger;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

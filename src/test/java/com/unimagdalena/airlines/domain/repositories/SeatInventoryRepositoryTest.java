@@ -1,7 +1,7 @@
 package com.unimagdalena.airlines.domain.repositories;
 
-import com.unimagdalena.airlines.entities.*;
-import com.unimagdalena.airlines.repositories.SeatInventoryRepository;
+import com.unimagdalena.airlines.domine.entities.*;
+import com.unimagdalena.airlines.domine.entities.repositories.SeatInventoryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package com.unimagdalena.airlines.domain.repositories;
 
-import com.unimagdalena.airlines.entities.Tag;
-import com.unimagdalena.airlines.repositories.TagRepository;
+import com.unimagdalena.airlines.domine.entities.Tag;
+import com.unimagdalena.airlines.domine.entities.repositories.TagRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

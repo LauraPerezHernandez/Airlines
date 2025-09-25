@@ -1,4 +1,4 @@
-package com.unimagdalena.airlines.entities;
+package com.unimagdalena.airlines.domine.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

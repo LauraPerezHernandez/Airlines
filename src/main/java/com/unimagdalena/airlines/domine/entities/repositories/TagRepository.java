@@ -1,6 +1,6 @@
-package com.unimagdalena.airlines.repositories;
+package com.unimagdalena.airlines.domine.entities.repositories;
 
-import com.unimagdalena.airlines.entities.Tag;
+import com.unimagdalena.airlines.domine.entities.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

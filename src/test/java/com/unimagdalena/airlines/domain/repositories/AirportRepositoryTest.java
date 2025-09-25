@@ -1,11 +1,10 @@
 package com.unimagdalena.airlines.domain.repositories;
 
-import com.unimagdalena.airlines.entities.Airport;
-import com.unimagdalena.airlines.repositories.AirportRepository;
+import com.unimagdalena.airlines.domine.entities.Airport;
+import com.unimagdalena.airlines.domine.entities.repositories.AirportRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.objectweb.asm.Opcodes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 

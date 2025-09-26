@@ -1,40 +1,42 @@
 package com.unimagdalena.airlines.api.DTO;
 
 import java.math.BigDecimal;
+import java.io.Serializable;
 
 public class BookingItemDTO {
-    private final String cabin;
-    private final BigDecimal price;
-    private final Integer segmentOrder;
-    private final String flightOrigin;
-    private final String flightDestination;
+    public record BookingItemCreateRequest(
+            String cabin,
+            BigDecimal price,
+            Integer segmentOrder,
+            Long flightId
+    ) implements Serializable {}
 
-    public BookingItemDTO(String cabin, BigDecimal price, Integer segmentOrder,
-                          String flightOrigin, String flightDestination) {
-        this.cabin = cabin;
-        this.price = price;
-        this.segmentOrder = segmentOrder;
-        this.flightOrigin = flightOrigin;
-        this.flightDestination = flightDestination;
-    }
+    public record BookingItemUpdateRequest(
+            String cabin,
+            BigDecimal price,
+            Integer segmentOrder,
+            Long flightId
+    ) implements Serializable {}
 
-    public String getCabin() {
-        return cabin;
-    }
+    public record BookingItemResponse(
+            Long id,
+            String cabin,
+            BigDecimal price,
+            Integer segmentOrder,
+            FlightDto flight
+    ) implements Serializable {}
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+    public record FlightDto(
+            Long id,
+            String number,
+            AirportDto origin,
+            AirportDto destination
+    ) implements Serializable {}
 
-    public Integer getSegmentOrder() {
-        return segmentOrder;
-    }
-
-    public String getFlightOrigin() {
-        return flightOrigin;
-    }
-
-    public String getFlightDestination() {
-        return flightDestination;
-    }
+    public record AirportDto(
+            Long id,
+            String code,
+            String name,
+            String city
+    ) implements Serializable {}
 }

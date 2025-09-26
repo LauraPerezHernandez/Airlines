@@ -45,7 +45,7 @@ public class Flight {
     @JoinColumn(name = "destination_airport_id", nullable = false)
     private Airport destination;
 
-    @ManyToMany(mappedBy = "tags", fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "tags_flights",
     joinColumns = @JoinColumn(name = "flight_id"),
     inverseJoinColumns = @JoinColumn(name = "tag_id"))

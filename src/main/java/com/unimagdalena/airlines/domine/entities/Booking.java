@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,8 +34,9 @@ public class Booking {
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
-    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY)
-    private List<BookingItem> items;
+    @OneToMany(mappedBy = "booking")
+    @Builder.Default
+    private List<BookingItem> items = new ArrayList<>();
 
     public void addItem(BookingItem bookingItem) {
         items.add(bookingItem);

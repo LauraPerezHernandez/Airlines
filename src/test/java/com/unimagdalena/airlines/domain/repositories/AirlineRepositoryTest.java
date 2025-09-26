@@ -21,9 +21,12 @@ public class AirlineRepositoryTest extends AbstractRepository {
         airlineRepository.save(Airline.builder().code("WN").name("wingo").build());
 
         //When
-        Optional<Airline> airline = airlineRepository.findByCode("AV");
+        Optional<Airline> airline1 = airlineRepository.findByCode("AV");
+        Optional<Airline> airline2 = airlineRepository.findByCode("AV");
 
         //Then
-        assertThat(airline).isPresent();
+        assertThat(airline1).isPresent();
+        assertThat(airline1.get().getName()).isEqualTo("avianca");
+        assertThat(airline2.get().getName()).isEqualTo("wingo");
     }
 }

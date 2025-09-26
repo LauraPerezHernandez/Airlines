@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,18 +27,16 @@ public class Booking {
     @Column(nullable = false, name = "created_at")
     private OffsetDateTime createdAt;
 
-    @Column(nullable = false, name = "update_at")
-    private OffsetDateTime updatedAt;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
     @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY)
-    private List<BookingItem> items;
+    @Builder.Default
+    private List<BookingItem> items = new ArrayList<>();
 
-    public void addItem(BookingItem bookingItem) {
-        items.add(bookingItem);
-        bookingItem.setBooking(this);
+    public void addItem(BookingItem item) {
+        this.items.add(item);
+        item.setBooking(this);
     }
 }

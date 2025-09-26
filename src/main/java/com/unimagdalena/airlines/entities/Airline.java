@@ -3,6 +3,7 @@ package com.unimagdalena.airlines.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,8 @@ public class Airline {
     private String name;
 
     @OneToMany(mappedBy = "airline", fetch = FetchType.LAZY)
-    private List<Flight> flights;
+    @Builder.Default
+    private List<Flight> flights = new ArrayList<>();
 
     public void addFlight(Flight flight) {
         flights.add(flight);

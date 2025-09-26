@@ -11,6 +11,4 @@ public interface AirportRepository extends JpaRepository<Airport,Long> {
     //- Recupera un aeropuerto por su código IATA (p. ej., “BOG”).
     Optional<Airport> findByCode(String code);
 
-    //-Recupera un aeropuerto por su ciudad
-    List<Airport> findByCity(String city);
 }

@@ -14,11 +14,12 @@ import java.util.Optional;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
-    List<Booking> findByCreatedAtBetween(OffsetDateTime start, OffsetDateTime end);
-    List<Booking> findByUpdatedAtBetween(OffsetDateTime start, OffsetDateTime end);
-    Page<Booking> findByPassenger_EmailIgnoreCaseOrderByCreatedAtDesc(String email, Pageable pageable);
+    Page<Booking> findByPassengerEmailIgnoreCaseOrderByCreatedAtDesc(String email, Pageable pageable);
 
-    @EntityGraph(attributePaths = {"items", "items.flight", "passenger"})
-    @Query("SELECT b FROM Booking b WHERE b.id = :id")
-    Optional<Booking> searchWithAllDetails(@Param("id") Long id);
+    @Query("SELECT DISTINCT b FROM Booking b " +
+            "LEFT JOIN FETCH b.items bi " +
+            "LEFT JOIN FETCH bi.flight " +
+            "LEFT JOIN FETCH b.passenger " +
+            "WHERE b.id = :id")
+    Optional<Booking> findByIdWithItemsAndFlightsAndPassenger(@Param("id") Long id);
 }

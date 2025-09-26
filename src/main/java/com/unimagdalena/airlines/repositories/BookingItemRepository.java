@@ -12,13 +12,13 @@ import java.util.List;
 public interface BookingItemRepository extends JpaRepository<BookingItem, Long> {
 
     //- lista los segmentos (tramos) de una reserva, ordenados por segmentOrder (1,2,3…).
-    List<BookingItem> findByBooking_IdOrderBySegmentOrder(Long bookingId);
+    List<BookingItem> findByBookingIdOrderBySegmentOrder(Long bookingId);
 
     //- calcula el total de la reserva sumando los precios de sus ítems. (JPQL con SUM + COALESCE)
     @Query("SELECT COALESCE(SUM(bi.price), 0) FROM BookingItem bi WHERE bi.booking.id = :bookingId")
-    BigDecimal calculateTotal(@Param("bookingId") Long bookingId);
+    BigDecimal sumPriceByBookingId(@Param("bookingId") Long bookingId);
 
     //- cuenta cuántos asientos han sido vendidos/reservados para un vuelo y cabina. (JPQL con COUNT)
     @Query("SELECT COUNT(bi) FROM BookingItem bi WHERE bi.flight.id = :flightId AND bi.cabin = :cabin")
-    long countSeatsSold(@Param("flightId") Long flightId, @Param("cabin") Cabin cabin);
+    long countByFlightIdAndCabin(@Param("flightId") Long flightId, @Param("cabin") Cabin cabin);
 }

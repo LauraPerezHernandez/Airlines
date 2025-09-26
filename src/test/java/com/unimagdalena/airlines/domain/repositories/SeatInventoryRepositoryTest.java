@@ -68,18 +68,15 @@ public class SeatInventoryRepositoryTest extends AbstractRepository {
     @Test
     @DisplayName("Seat Inventory: Return TRUE if (by flight id, cabin) the available seats availableSeats >= min")
     void shouldVerifyIfExistsByFlight_IdAndCabinAndAvailableSeatsIsGreaterThanEqual() {
+
         // Given
         seatInventoryRepository.save(SeatInventory.builder().cabin(Cabin.ECONOMY).totalSeats(180).availableSeats(120).flight(flight1).build());
-
         seatInventoryRepository.save(SeatInventory.builder().cabin(Cabin.BUSINESS).totalSeats(20).availableSeats(5).flight(flight1).build());
 
         // When - Then
-        assertThat(seatInventoryRepository.existsByFlight_IdAndCabinAndAvailableSeatsIsGreaterThanEqual(flight1.getId(), Cabin.ECONOMY, 100)).isTrue();
-
-        assertThat(seatInventoryRepository.existsByFlight_IdAndCabinAndAvailableSeatsIsGreaterThanEqual(flight1.getId(), Cabin.ECONOMY, 200)).isFalse();
-
-        assertThat(seatInventoryRepository.existsByFlight_IdAndCabinAndAvailableSeatsIsGreaterThanEqual(flight1.getId(), Cabin.BUSINESS, 1)).isTrue();
-
-        assertThat(seatInventoryRepository.existsByFlight_IdAndCabinAndAvailableSeatsIsGreaterThanEqual(flight1.getId(), Cabin.PREMIUM, 1)).isFalse();
+        assertThat(seatInventoryRepository.hasAvailableSeats(flight1.getId(), Cabin.ECONOMY, 100)).isTrue();
+        assertThat(seatInventoryRepository.hasAvailableSeats(flight1.getId(), Cabin.ECONOMY, 200)).isFalse();
+        assertThat(seatInventoryRepository.hasAvailableSeats(flight1.getId(), Cabin.BUSINESS, 1)).isTrue();
+        assertThat(seatInventoryRepository.hasAvailableSeats(flight1.getId(), Cabin.PREMIUM, 1)).isFalse();
     }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     Page<Flight> findByAirline_Name(String airline_name, Pageable pageable);
+
     Page<Flight> findByOrigin_CodeAndDestination_CodeAndDepartureTimeBetween(
             String origin_code, String destination_code, OffsetDateTime from,
             OffsetDateTime to, Pageable pageable);
